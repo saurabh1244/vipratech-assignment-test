@@ -12,6 +12,8 @@ DEBUG = os.getenv("DEBUG", "0") == "1"
 
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+CSRF_TRUSTED_ORIGINS = os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",") if not DEBUG else []
+
 
 
 
@@ -122,3 +124,7 @@ if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+
+
+if os.getenv("DB_SSL", "0") == "1":
+    DATABASES["default"]["OPTIONS"] = {"sslmode": "require"}
