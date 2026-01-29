@@ -15,3 +15,5 @@ RUN pip install -r requirements.txt
 
 # Copy project
 COPY . .
+
+CMD ["sh", "-c", "gunicorn vipratest.wsgi:application --bind 0.0.0.0:${PORT}"]
