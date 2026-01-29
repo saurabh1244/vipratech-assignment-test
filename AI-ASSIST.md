@@ -13,11 +13,12 @@
 ## What Was Manually Implemented / Verified
 - Implemented models: `Product`, `Order`, `OrderItem`
 - Implemented storefront page with quantity input and checkout
-- Verified Stripe test payment flow using test card `4242 4242 4242 4242`
-- Verified paid orders appear in **My Orders**
 - Verified user-specific order visibility after login
 - Verified Docker build and local run
 - Verified admin customization with Jazzmin
+- Database migrations and order creation logic
+- Paid order display and filtering per user
+- Docker container startup and application runtime behavior
 
 ## Notes
 AI was used for assistance and guidance, but all final code decisions and testing were done manually.
