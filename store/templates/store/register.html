@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50">
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="w-full max-w-md bg-white border rounded-2xl p-6 shadow-sm">
+      <h1 class="text-xl font-semibold">Create Account</h1>
+      <p class="text-sm text-slate-500 mt-1">Register to buy products and track orders</p>
+
+      <form method="POST" class="mt-6 space-y-4">
+        {% csrf_token %}
+
+        <div>
+          <label class="text-sm font-medium text-slate-700">Username</label>
+          <input name="username" class="mt-1 w-full border rounded-xl px-3 py-2" required />
+        </div>
+
+        <div>
+          <label class="text-sm font-medium text-slate-700">Password</label>
+          <input type="password" name="password1" class="mt-1 w-full border rounded-xl px-3 py-2" required />
+        </div>
+
+        <div>
+          <label class="text-sm font-medium text-slate-700">Confirm Password</label>
+          <input type="password" name="password2" class="mt-1 w-full border rounded-xl px-3 py-2" required />
+        </div>
+
+        {% if form.errors %}
+          <p class="text-sm text-red-600">
+            Please ensure passwords match and meet requirements.
+          </p>
+        {% endif %}
+
+        <button class="w-full rounded-xl bg-indigo-600 text-white py-2 font-semibold hover:bg-indigo-700">
+          Create Account
+        </button>
+      </form>
+
+      <p class="mt-4 text-sm text-slate-600">
+        Already have an account ?
+        <a class="text-indigo-600 font-medium hover:underline" href="{% url 'login' %}">Login</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
